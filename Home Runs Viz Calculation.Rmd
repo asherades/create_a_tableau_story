@@ -1,0 +1,28 @@
+---
+title: "Home Runs Viz Calculation"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+  )
+
+library(readr)
+library(tidyverse)
+```
+
+```{r dataset}
+baseball_data <- read_csv("~/Documents/Udacity Projects/Tableau/Project Files/baseball_data.csv")
+```
+
+```{r above zero mean calculation}
+above_zero <- baseball_data %>%
+  filter (HR > 0)
+
+mean(above_zero$HR)
+quantile(above_zero$HR)
+```
+
